@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
+
+ARG PIPENV_VER=2023.6.18
+
+USER vscode
+#ENV PATH="/home/nonroot/.local/bin:$PATH" PIP_CACHE_DIR=$PIP_CACHE_DIR
+
+# install pipenv before copying everything else so that the layer can be cached
+RUN pip install pipenv==$PIPENV_VER --user
