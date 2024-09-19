@@ -1,18 +1,17 @@
 // hello
 {
-  "name": "python-hello-devcontainer",
   "build": {
-    "dockerfile": "Dockerfile.devcontainer",
-    "context": "../"
+    "context": "../",
+    "dockerfile": "Dockerfile.devcontainer"
   },
   "containerUser": "vscode",
-  "runArgs": ["--env-file","dev.env", "--env-file",".devcontainer/devcontainer.env"],
   "customizations": {
     "jetbrains": {
       "backend": "PyCharm"
     },
     "vscode": {}
   },
+  "name": "devcontainer-python",
   "portsAttributes": {
     "9000": {
       "label": "Hello Remote World",
@@ -21,4 +20,15 @@
   },
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "pip3 install -r requirements.txt"
+  // "runArgs": [
+  //   "--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:z",
+  //   "--env-file",
+  //   "dev.env",
+  //   "--env-file",
+  //   ".devcontainer/devcontainer.env"
+  // ],
+  // "mounts": [
+  //   "source=devcontainer-python-bashhistory,target=/commandhistory,type=volume"
+  // ],
+  // "workspaceMount": ""
 }
